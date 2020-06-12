@@ -1,0 +1,12 @@
+@import url('./__avatar/__avatar.css');
+@import url('./__info/__info.css');
+@import url('./__title/__title.css');
+@import url('./__text/__text.css');
+
+.about {
+margin: 0 102px;
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

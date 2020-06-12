@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+    <title>Webpack</title>
+</head>
+<body>
+  <div class="root">
+    <section class="main-section">
+      <header class="header">
+        <div class="header__logo">NewsExplorer</div>
+        <nav class="header__nav_guest">
+          <a href="" class="header__menu">Главная</a>
+          <button class="header__authorized">Авторизоваться</button>
+        </nav>
+        <nav class="header__nav_authorized">
+          <a href="" class="header__menu">Главная</a>
+          <a href="/src/pages/articles.html" class="header__menu">Сохранённые статьи</a>
+          <button class="header__authorized">
+            <div class="header__user-name">Грета </div>
+            <img class="header__icon" src="<%= require('../image/logout.png').default%>" alt="">
+          </button>
+        </nav>
+      </header>
+      <div class="reserch">
+        <h1 class="reserch__title">Что в мире творится?</h1>
+        <p class="reserch__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+        <div class="reserch__input">
+          <input class="reserch__input_handler" placeholder="Введите тему новости">
+          <button class="reserch__button">Искать</button></div>
+        </div>
+
+    </section>
+    <section class="result">
+      <div class="result__content">
+         <h2 class="result__title">Результаты поиска</h2>
+      <div class="result__articles">
+        <div class="article">
+          <div class="article__image">
+             <img class="">
+             <div class="article__delete-icon"></div>
+          </div>
+
+          <div class="article__date"></div>
+          <div class="article__title"></div>
+          <div class="article__text"></div>
+          <div class="article__source"></div>
+        </div>
+        <div class="article">
+          <div class="article__image">
+             <img class="">
+             <div class="article__delete-icon"></div>
+          </div>
+
+          <div class="article__date"></div>
+          <div class="article__title"></div>
+          <div class="article__text"></div>
+          <div class="article__source"></div>
+        </div>
+
+
+      </div>
+      </div>
+
+    </section>
+    <section class="about">
+      <div class="about__avatar">
+              <img class="about__avatar_image" src="<%= require('../image/image-03.png').default%>" alt="">
+
+      </div>
+      <div class="about__info">
+        <h2 class="about__title">Об авторе</h2>
+        <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+          </p>
+        <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__copiright">&copy; 2020 Supersite, Powered by News API</div>
+      <div class="footer__links">
+      <nav class="footer__nav">
+          <a class="footer__link footer__link_text" href="/" target="blank">Главная</a>
+          <a class="footer__link footer__link_text" href="https://praktikum.yandex.ru/" target="blank">Яндекс.Практикум</a>
+         </nav>
+        <div class="footer__icon">
+          <a class="footer__link" href="https://github.com/" target="blank"><img src="<%= require('../image/GitHub.png').default%>" alt="GitHub"></a>
+          <a class="footer__link" href="https://facebook.com" target="blank"><img src="<%= require('../image/Facebook.png').default%>" alt="Facebook"></a>
+        </div>
+</div>
+    </footer>
+  </div>
+  <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+</body>
+</html>

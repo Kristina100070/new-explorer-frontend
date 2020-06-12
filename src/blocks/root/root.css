@@ -1,0 +1,10 @@
+.root {
+  margin: 0 auto;
+max-width: 1440px;
+}
+
+@media screen and (max-width: 768px) {
+  .root {
+max-width: 768px;
+}
+}

@@ -1,0 +1,7 @@
+@import url('../blocks/header/header.css');
+
+
+.header {
+  background-color: lawngreen;
+  height: 60px;
+}

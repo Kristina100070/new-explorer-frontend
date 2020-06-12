@@ -1,0 +1,15 @@
+.reserch__text {
+  margin-bottom: 64px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+@media screen and (max-width: 768px) {
+  .reserch__text {
+    margin-bottom: 48px;
+
+  }
+}

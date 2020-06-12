@@ -1,0 +1,22 @@
+@import url('./__menu/__menu.css');
+@import url('./__authorized/__authorized.css');
+@import url('./__nav-guest/__nav_guest.css');
+@import url('./__logo/__logo.css');
+@import url('./__icon/__icon.css');
+@import url('./__user-name/__user-name.css');
+@import url('./__nuv-authorized/__nav_authorized.css');
+
+.header {
+  padding: 0 104px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
+@media screen and (max-width: 320px) {
+  .header {
+    min-height: 56px;
+  }
+}

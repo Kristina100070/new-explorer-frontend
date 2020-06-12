@@ -1,0 +1,12 @@
+@import url('./__input/__input.css');
+@import url('./__button/__button.css');
+@import url('./__title/__title.css');
+@import url('./__text/__text.css');
+
+.reserch {
+  width: 608px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+margin: 80px auto;
+}

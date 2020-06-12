@@ -1,0 +1,22 @@
+@import url('../blocks/about/about.css');
+@import url('../blocks/article/article.css');
+@import url('../blocks/footer/footer.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/main-section/main-section.css');
+@import url('../blocks/reserch/reserch.css');
+@import url('../blocks/result/result.css');
+@import url('../blocks/root/root.css');
+
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}

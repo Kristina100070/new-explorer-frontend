@@ -1,0 +1,11 @@
+.main-section {
+  min-height: 68vh;
+  background-image: url('../../image/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+}
+@media screen and (max-width: 768px) {
+  .main-section {
+  background-image: url('../../image/georgia-de-lotz--Tablet.png');
+}
+}

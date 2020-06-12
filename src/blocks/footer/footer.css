@@ -1,0 +1,13 @@
+@import url('./__copiright/__copiright.css');
+@import url('./__links/__links.css');
+@import url('./__link/__link.css');
+
+.footer {
+  margin: 0 104px;
+height: 80px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+

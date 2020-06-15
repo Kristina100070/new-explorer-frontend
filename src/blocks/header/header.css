@@ -1,22 +1,30 @@
 @import url('./__menu/__menu.css');
 @import url('./__authorized/__authorized.css');
-@import url('./__nav-guest/__nav_guest.css');
 @import url('./__logo/__logo.css');
 @import url('./__icon/__icon.css');
 @import url('./__user-name/__user-name.css');
-@import url('./__nuv-authorized/__nav_authorized.css');
+@import url('./__nav/__nav.css');
+@import url('./__black/__black.css');
 
 .header {
-  padding: 0 104px;
+  padding: 0 7.2%;
   min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  flex-wrap: wrap;
   box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
 }
-@media screen and (max-width: 320px) {
+.header__option {
+  background: #FFFFFF;
+  box-shadow: inset 0px -1px 0px #D1D2D6;
+}
+@media screen and (max-width: 480px) {
   .header {
+    padding: 0;
     min-height: 56px;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }

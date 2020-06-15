@@ -18,3 +18,26 @@
 .footer__link_text:last-of-type {
   margin-right: 45px;
 }
+@media screen and (max-width: 1024px) {
+  .footer__link {
+    margin-right: 12px;
+}
+.footer__link_text:last-of-type {
+  margin-right: 30px;
+}
+}
+@media screen and (max-width: 768px) {
+  .footer__link {
+    margin-right: 5px;
+}
+.footer__link_text:last-of-type {
+  margin-right: 24px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.footer__link_text {
+  text-align: start;
+  line-height: 48px;
+}
+}

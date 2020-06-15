@@ -1,5 +1,6 @@
 .header__authorized {
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 8px;
   font-family: 'Roboto';
@@ -12,4 +13,9 @@ box-sizing: border-box;
 border-radius: 100px;
 background: transparent;
 color: #FFFFFF;
+}
+@media screen and (max-width: 320px) {
+  .header__authorized {
+   width: 100%;
+}
 }

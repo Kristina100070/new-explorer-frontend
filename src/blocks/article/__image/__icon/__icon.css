@@ -1,0 +1,25 @@
+.article__icon-save {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 40px;
+  height: 40px;
+  background-image: url('../../../../image/icon-save.png');
+}
+.article__icon-save:hover {
+  background-image: url('../../../../image/icon-save-hover.png');
+}
+.article__icon_click {
+  background-image: url('../../../../image/icon-save-user.png');
+}
+.article__icon-delete {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 40px;
+  height: 40px;
+  background-image: url('../../../../image/delete.png');
+}
+.article__icon-delete:hover {
+  background-image: url('../../../../image/delete-hover.png');
+}

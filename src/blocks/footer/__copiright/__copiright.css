@@ -5,4 +5,10 @@
   font-size: 16px;
   line-height: 22px;
   color: #B6BCBF;
+
+}
+@media screen and (max-width: 320px) {
+  .footer__copiright {
+    font-size: 14px;
+  }
 }

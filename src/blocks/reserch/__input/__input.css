@@ -1,5 +1,6 @@
 .reserch__input {
   position: relative;
+  display: flex;
   }
   .reserch__input_handler {
     width: 100%;
@@ -19,4 +20,21 @@
   }
   .reserch__input_handler:focus {
     color: #1A1B22;
+  }
+
+  @media screen and (max-width: 768px) {
+    .reserch__input_handler  {
+      height: 56px;
+  }
+  }
+  @media screen and (max-width: 480px) {
+    .reserch__input_handler  {
+width: 100%;
+margin-bottom: 16px;
+  }
+  .reserch__input {
+    align-self: flex-end;
+    width: 100%;
+    flex-direction: column;
+  }
   }

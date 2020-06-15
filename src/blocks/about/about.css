@@ -4,9 +4,21 @@
 @import url('./__text/__text.css');
 
 .about {
-margin: 0 102px;
-  height: 75vh;
+  padding: 5.5% 7.2%;
+  height: 70hv;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+@media screen and (max-width: 690px) {
+  .about {
+    flex-direction: column;
+}
+}
+
+@media screen and (max-width: 320px) {
+  .about {
+padding: 2.5% 5%;
+}
 }

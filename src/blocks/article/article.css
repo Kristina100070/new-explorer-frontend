@@ -1,7 +1,42 @@
+@import url('./__date/__date.css');
+@import url('./__image/__image.css');
+@import url('./__source/__sourse.css');
+@import url('./__text/__text.css');
+@import url('./__title/__title.css');
+@import url('./__keyword/__keyword.css');
+
+
 .article {
   height: 576px;
-  width: 400px;
-  border: 1px solid red;
+  max-width: 400px;
+  position: relative;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+background-color: #fff;
+}
 
 
+@media screen and (max-width: 1280px) {
+  .article {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .article {
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .article {
+    height: 420px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .article {
+    height: 440px;
+  }
 }

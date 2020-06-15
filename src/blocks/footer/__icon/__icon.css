@@ -1,0 +1,10 @@
+.footer__icon {
+  display: flex;
+  justify-content: space-around;
+
+}
+@media screen and (max-width: 480px) {
+  .footer__icon {
+    padding-top: 12px;
+  }
+}

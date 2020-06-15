@@ -8,3 +8,8 @@ max-width: 1440px;
 max-width: 768px;
 }
 }
+@media screen and (max-width: 320px) {
+  .root {
+max-width: 320px;
+}
+}

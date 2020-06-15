@@ -1,5 +1,13 @@
 .result__articles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 18px 18px;
+  grid-gap: 16px;
+  margin-bottom: 6%;
+}
+
+@media screen and (max-width: 720px) {
+  .result__articles {
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    grid-gap: 8px;
+  }
 }

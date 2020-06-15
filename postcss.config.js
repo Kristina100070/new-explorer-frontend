@@ -1,11 +1,12 @@
-/* eslint-disable global-require */
+/* eslint-disable import/no-extraneous-dependencies */
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+
 module.exports = {
   plugins: [
-    // eslint-disable-next-line import/no-extraneous-dependencies
-    require('autoprefixer'),
-    // eslint-disable-next-line import/no-extraneous-dependencies
-    require('cssnano')({
-      preset: 'default',
+    autoprefixer,
+    cssnano({ // подключили cssnano
+      preset: 'default', // выбрали настройки по умолчанию
     }),
   ],
 };

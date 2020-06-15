@@ -1,0 +1,21 @@
+@import url('./__count-articles/__count-articles.css');
+@import url('./__keywords/__keywords.css');
+@import url('./__title/__title.css');
+
+.info {
+  padding: 5.5% 7.2%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .info {
+max-width: 768px;
+}
+}
+@media screen and (max-width: 320px) {
+  .info {
+max-width: 320px;
+padding: 2.5% 5%;
+}
+}

@@ -15,7 +15,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '.[name]/[name].[chunkhash].js',
+    filename: '[name]/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -67,14 +67,14 @@ module.exports = {
       canPrint: true,
     }),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       template: './src/pages/index.html',
       filename: 'index.html',
       chunks: ['main'],
 
     }),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       template: './src/pages/articles.html',
       filename: './articles/index.html',
       chunks: ['articles'],

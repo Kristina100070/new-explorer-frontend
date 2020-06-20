@@ -2,7 +2,7 @@
 
 .article__image {
   background-image: url('../../../image/image_06.png');
-  background-size: cover;
+  background-size: auto;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 12px 12px 0 0;

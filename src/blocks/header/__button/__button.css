@@ -1,5 +1,5 @@
-.header__authorized {
-  display: flex;
+.header__button {
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 8px;
@@ -15,7 +15,7 @@ background: transparent;
 color: #FFFFFF;
 }
 @media screen and (max-width: 320px) {
-  .header__authorized {
+  .header__button {
    width: 100%;
 }
 }

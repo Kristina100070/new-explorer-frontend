@@ -1,0 +1,24 @@
+.header__nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  }
+  .header__nav_guest {
+display: none;
+
+    }
+  .header__nav_authorized {
+       display: flex;
+    }
+
+  @media screen and (max-width: 480px) {
+    .header__nav {
+      padding: 0 7.2%;
+      flex-direction: column;
+    align-items: flex-start;
+ justify-content: space-around;
+ height: 230px;
+ width: 100%;
+      }
+  }

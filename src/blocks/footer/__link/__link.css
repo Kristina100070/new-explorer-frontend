@@ -1,0 +1,43 @@
+.footer__link {
+  cursor: pointer;
+  margin-right: 30px;
+}
+.footer__link:last-of-type {
+  margin-right: 0px;
+}
+.footer__link_text {
+ font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+  color: #1A1B22;
+  text-align: center;
+}
+.footer__link_text:last-of-type {
+  margin-right: 45px;
+}
+@media screen and (max-width: 1024px) {
+  .footer__link {
+    margin-right: 12px;
+}
+.footer__link_text:last-of-type {
+  margin-right: 30px;
+}
+}
+@media screen and (max-width: 768px) {
+  .footer__link {
+    margin-right: 5px;
+}
+.footer__link_text:last-of-type {
+  margin-right: 24px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.footer__link_text {
+  text-align: start;
+  line-height: 48px;
+}
+}

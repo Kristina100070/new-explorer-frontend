@@ -1,0 +1,35 @@
+.reserch__button {
+  right: 0;
+width: 25%;
+  height: 64px;
+  position: absolute;
+  background-color: #2F71E5;
+box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+border-radius: 100px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 24px;
+color: #FFFFFF;
+}
+.reserch__button:hover {
+background-color: #347EFF;
+
+}
+.reserch__button:active {
+  background-color: #2A65CC;
+}
+
+@media screen and (max-width: 768px) {
+  .reserch__button  {
+    height: 56px;
+}
+}
+@media screen and (max-width: 480px) {
+  .reserch__button {
+position: relative;
+width: 100%;
+margin-bottom: 16px;
+}
+}

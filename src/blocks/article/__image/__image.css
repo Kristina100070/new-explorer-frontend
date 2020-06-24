@@ -1,0 +1,10 @@
+@import url('./__icon/__icon.css');
+
+.article__image {
+  background-image: url('../../../image/image_06.png');
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px 12px 0 0;
+    height: 47%;
+}

@@ -1,0 +1,25 @@
+@media screen and (max-width: 480px) {
+  .header__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0);
+    display: flex;
+  flex-direction: column;
+z-index: 1;
+  }
+  .mobile-menu {
+
+    padding: 0 7.2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+    width: 100%;
+  }
+}
+
+

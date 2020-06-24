@@ -1,0 +1,53 @@
+@import url('../vendor/fonts.css');
+@import url('../blocks/about/about.css');
+@import url('../blocks/article/article.css');
+@import url('../blocks/footer/footer.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/main-section/main-section.css');
+@import url('../blocks/reserch/reserch.css');
+@import url('../blocks/result/result.css');
+@import url('../blocks/root/root.css');
+@import url('../blocks/prelouder/preloader.css');
+@import url('../blocks/not-found/not-found.css');
+@import url('../blocks/popup/popup.css');
+@import url('../blocks/mobile-menu/mobile-nenu.css');
+
+
+
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+h3 {
+  margin: 0;
+}
+h4 {
+  margin: 0;
+}
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+html {
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}

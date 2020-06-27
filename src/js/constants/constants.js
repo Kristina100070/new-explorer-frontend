@@ -58,8 +58,12 @@ const OPTIONS_MAIN_API = {
   },
 };
 const OPTIONS_NEWS_API = {
-  baseUrl: 'https://praktikum.tk/news/v2',
-  // https://newsapi.org/v2
+  baseUrl: 'https://praktikum.tk/news/v2/everything',
+  // https://newsapi.org/v2/everything
+  headers: {
+    'Content-Type': 'application/json',
+    credentials: 'include',
+  },
 };
 export {
   ERROR_MESSAGES,

@@ -6,6 +6,9 @@ font-size: 18px;
 line-height: 24px;
 color: #1A1B22;
 }
+.info__keywords_item {
+  font-weight: bold;
+}
 @media screen and (max-width: 768px) {
   .info__keywords {
     font-size: 14px;

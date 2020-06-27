@@ -5,7 +5,7 @@ color: #1A1B22;
 .header__button_black {
   border: 1px solid #000;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .header__black {
     color: #FFFFFF;
     }

@@ -1,0 +1,13 @@
+@import url('./__text/__text.css');
+.error__section {
+  display: none;
+  flex-direction: column;
+  background-color: #F5F6F7;
+  padding: 5.5% 7.2%;
+  align-items: center;
+  }
+  @media screen and (max-width: 320px) {
+    .not-found {
+  padding: 2.5% 5%;
+  }
+  }

@@ -11,71 +11,30 @@
 <body>
   <div class="root">
     <header class="header header__option">
-      <div class="mobile-menu">
-        <div class="header__logo header__black">NewsExplorer</div>
-        <img class="header__icon-menu" src="<%= require('../image/menu-black.png').default%>" alt="">
-     </div>
+<div class="header__logo_black">NewsExplorer</div>
+<div class="header__icon-menu header__icon-menu_black"></div>
 
-      <nav class="header__nav header__nav_authorized">
-        <a href="/" class="header__menu header__black">Главная</a>
-        <a href="" class="header__menu header__black header__menu_active-black">Сохранённые статьи</a>
-        <button class="header__authorized header__button_black">
-          <div class="header__user-name header__black">Грета </div>
-          <img class="header__icon-exit_black" src="<%= require('../image/logout-black.png').default%>" alt="">
-          <img class="header__icon-exit" src="<%= require('../image/logout.png').default%>" alt="">
-        </button>
-      </nav>
+<nav class="header__nav">
+  <a href="./" class="header__menu header__black">Главная</a>
+  <a href="./articles.html" class="header__articles header__black header__menu_active-black">Сохранённые статьи</a>
+  <button class="header__button header__auth">
+    <div class="header__user-name header__black"></div>
+    <div class="header__icon-exit header__icon-exit_black"></div>
+  </button>
+</nav>
+
     </header>
+
     <section class="info">
       <h6 class="info__title">Сохранённые статьи</h6>
-      <p class="info__count-articles">Грета, у вас 5 сохранённых статей</p>
-      <p class="info__keywords">По ключевым словам: Природа, Тайга и 2 другим</p>
+      <p class="info__count-articles">
+        <p class="info__count-articles info__count-articles_name"></p>
+        <p class="info__count-articles info__count-articles_count"></p></p>
+        <p class="info__keywords">По ключевым словам:</p>
     </section>
 
-    <section class="result_active">
+    <section class="result">
       <div class="result__articles">
-
-      <div class="article">
-        <div class="article__image"></div>
-        <div class="article__keyword">Природа</div>
-        <div class="article__icon-delete"></div>
-        <div class="article__date">2 августа, 2019</div>
-        <div class="article__title">Национальное достояние – парки</div>
-        <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-        <div class="article__source">Лента.ру</div>
-      </div>
-
-      <div class="article">
-        <div class="article__image"></div>
-        <div class="article__keyword">Природа</div>
-        <div class="article__icon-delete"></div>
-        <div class="article__date">2 августа, 2019</div>
-        <div class="article__title">Национальное достояние – парки</div>
-        <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-        <div class="article__source">Лента.ру</div>
-      </div>
-
-
-      <div class="article">
-        <div class="article__image"></div>
-        <div class="article__keyword">Природа</div>
-        <div class="article__icon-delete"></div>
-        <div class="article__date">2 августа, 2019</div>
-        <div class="article__title">Национальное достояние – парки</div>
-        <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-        <div class="article__source">Лента.ру</div>
-      </div>
-
-
-      <div class="article">
-        <div class="article__image"></div>
-        <div class="article__keyword">Природа</div>
-        <div class="article__icon-delete"></div>
-        <div class="article__date">2 августа, 2019</div>
-        <div class="article__title">Национальное достояние – парки</div>
-        <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-        <div class="article__source">Лента.ру</div>
-      </div>
 
       </div>
   </section>

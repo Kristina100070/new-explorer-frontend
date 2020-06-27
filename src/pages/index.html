@@ -10,6 +10,7 @@
 <body>
   <div class="root">
     <section class="main-section">
+
       <header class="header">
         <div class="header__logo">NewsExplorer</div>
         <div class="header__icon-menu"></div>
@@ -18,8 +19,8 @@
           <a href="./articles.html" class="header__articles">Сохранённые статьи</a>
           <button class="header__button header__unauth">Авторизоваться</button>
           <button class="header__button header__auth">
-            <div class="header__user-name">Грета </div>
-            <img class="header__icon-exit" src="<%= require('../image/logout.png').default%>" alt="">
+            <div class="header__user-name"></div>
+            <div class="header__icon-exit"></div>
           </button>
         </nav>
       </header>
@@ -47,6 +48,11 @@
   <img class="not-found__image" src="<%= require('../image/not-found_v1.png').default%>">
   <h4 class="not-found__title">Ничего не найдено</h4>
   <p class="not-found__text">К сожалению по вашему запросу ничего не найдено.</p>
+</section>
+
+<section class="error__section">
+  <h4 class="error__text">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.
+    Подождите немного и попробуйте ещё раз.</h4>
 </section>
 
    <section class="about">
@@ -88,11 +94,11 @@
         <form class="popup__form_singin" name="signin" novalidate>
           <div>
           <h6 class="popup__subtitle">Email</h6>
-          <input id="email" type="email" name="email" placeholder="Введите почту" class="popup__input"  required minlength="2" maxlength="30" >
+          <input id="email" type="email" name="email" placeholder="Введите почту" class="popup__input popup__input-email_signin"  required minlength="2" maxlength="30" >
           <span id="error" class="error"></span></div>
           <div>
             <h6 class="popup__subtitle">Пароль</h6>
-          <input id="password" type="text" name="password" placeholder="Введите пароль" class="popup__input"  required >
+          <input id="password" type="text" name="password" placeholder="Введите пароль" class="popup__input popup__input-password_signin"  required >
           <span id="error" class="error" ></span></div>
             <button type="submit" class="popup__button">Войти</button>
         <span class="popup__span" >или <a class="popup__link popup__link_up">Зарегистрироваться</a></span>
@@ -107,17 +113,17 @@
         <form class="popup__form_singup" name="signup" novalidate>
           <div>
           <h6 class="popup__subtitle">Email</h6>
-          <input pattern="^(([\w\.]{2,}-?)+@([\w\-\.]{2,})+([a-z]{2,})+)$" type="text" name="email" placeholder="Введите почту" class="popup__input"  required minlength="2" maxlength="30" >
+          <input pattern="^(([\w\.]{2,}-?)+@([\w\-\.]{2,})+([a-z]{2,})+)$" type="text" name="email" placeholder="Введите почту" class="popup__input popup__input-email_signup"  required minlength="2" maxlength="30" >
           <span id="error" class="error"></span></div>
           <div>
             <h6 class="popup__subtitle">Пароль</h6>
-          <input pattern="^((?=^.{8,}$)(?=.*[0-9])(?=.*[a-z]).*)$" type="text" name="password" placeholder="Введите пароль" class="popup__input"  required minlength="8" maxlength="30" >
+          <input pattern="^((?=^.{8,}$)(?=.*[0-9])(?=.*[a-z]).*)$" type="text" name="password" placeholder="Введите пароль" class="popup__input popup__input-password_signup"  required minlength="8" maxlength="30" >
           <span id="error" class="error" ></span></div>
           <div>
           <h6 class="popup__subtitle">Имя</h6>
-          <input id="name" type="text" name="text" placeholder="Введите своё имя" class="popup__input"  required minlength="2" maxlength="30" >
+          <input id="name" type="text" name="text" placeholder="Введите своё имя" class="popup__input popup__input-name_signup"  required minlength="2" maxlength="30" >
           <span id="error" class="error" ></span></div>
-          <span class="error_server"></span>
+          <span class="error__server">Такой пользователь уже есть</span>
             <button type="submit" class="popup__button">Зарегистрироваться</button>
         <span class="popup__span" >или <a class="popup__link popup__link_in">Войти</a></span>
           </form>

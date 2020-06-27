@@ -1,6 +1,6 @@
 .articles__button {
   margin: auto;
-  display: flex;
+  display: none;
   justify-content: center;
   border: none;
 border-radius: 100px;

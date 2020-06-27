@@ -46,4 +46,20 @@ export class MainApi {
   logout() {
     return this.makeFetch('users/me', 'PUT');
   }
+
+  getArticles() {
+    return this.makeFetch('articles');
+  }
+
+  createArticle({
+    keyword, title, text, date, source, link, image,
+  }) {
+    return this.makeFetch('articles', 'POST', {
+      keyword, title, text, date, source, link, image,
+    });
+  }
+
+  deleteArticle(articleId) {
+    return this.makeFetch(`articles/${articleId}`, 'DELETE');
+  }
 }

@@ -1,13 +1,7 @@
-/* eslint-disable no-undef */
-function formattingDate() {
-  const dayMilliseconds = 24 * 60 * 60 * 1000 * 7;
-  const currentDate = new Date().toISOString();
-  const previousDate = new Date(new Date().getTime() - dayMilliseconds).toISOString();
-  return {
-    currentDate,
-    previousDate,
-  };
-}
+import { errorSection } from '../../utils/error-section';
+import { formattingDate } from '../../utils/formattingDate';
+/* eslint-disable prefer-promise-reject-errors */
+
 const datacreate = formattingDate();
 const datanow = new Date();
 // eslint-disable-next-line import/prefer-default-export
@@ -26,10 +20,13 @@ export class NewsApi {
       },
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
+        if (!res.ok) {
+          return Promise.reject(`Ошибка: ${res.status}`);
         }
-        return Promise.regect(res.status);
+        return res.json();
+      })
+      .catch(() => {
+        errorSection();
       });
   }
 }

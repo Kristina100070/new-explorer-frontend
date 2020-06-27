@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 /* eslint-disable guard-for-in */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable max-classes-per-file */
@@ -6,104 +7,135 @@
 
 /* eslint-disable no-undef */
 import '../style/style.css';
-import { Form } from './conponents/form/form';
-import { Popup } from './conponents/popup/popup';
+import { Form } from './conponents/form/Form';
+import { Popup } from './conponents/popup/Popup';
 import { MainApi } from './api/main/MainApi';
 import { NewsApi } from './api/news/NewsApi';
 import { Header } from './conponents/header/Header';
-// import { Article } from './conponents/article/Article';
-// import { ArticleList } from './conponents/article-list/ArticleList';
+import { Article } from './conponents/article/Article';
+import { ArticleList } from './conponents/article-list/ArticleList';
 
 // импорт переменных
-// eslint-disable-next-line import/named
-import { buttonMenu } from './constants/constants';
-
+import {
+  BUTTON_MENU,
+  AUTH_EMAIL,
+  AUTH_PASSWORD,
+  AUTH_NAME,
+  AUTH_EMAIL_LOGIN,
+  AUTH_PASSWORD_LOGIN,
+  BUTTON_HEADER_SIGNUP,
+  BUTTON_SINGIN,
+  BUTTON_SINGUP,
+  BUTTON_SINGIN_SUCCESS,
+  POPUP_SIGNUP,
+  POPUP_SIGNIN,
+  POPUP_SIGNUP_SUCCESS,
+  FORM_SIGNUP,
+  FORM_SIGNIN,
+  OPTIONS_MAIN_API,
+  OPTIONS_NEWS_API,
+  RESULT,
+  EXIT_BUTTON,
+  BUTTON_RESERCH,
+  INPUT_HANDLER,
+  BUTTON_SHOW_MORE,
+  ERROR_INPUT,
+} from './constants/constants';
 
 const header = new Header();
-const api = new MainApi({
-  baseUrl: 'https://api.news-explorer82.ru',
-  headers: {
-    'Content-Type': 'application/json',
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
-});
-
-const newsApi = new NewsApi({
-  baseUrl: 'https://newsapi.org',
-  headers: {
-    'Content-Type': 'application/json',
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
-});
-
-
-const BUTTON_HEADER_SIGNUP = document.querySelector('.header__button');
-const BUTTON_SINGIN = document.querySelector('.popup__link_in');
-const BUTTON_SINGUP = document.querySelector('.popup__link_up');
-const BUTTON_SINGIN_SUCCESS = document.querySelector('.popup__link_i');
-
-const POPUP_SIGNUP = document.querySelector('.popup__singup');
-const POPUP_SIGNIN = document.querySelector('.popup__singin');
-const POPUP_SIGNUP_SUCCESS = document.querySelector('.popup__singup-success');
-
-
-// eslint-disable-next-line no-undef
+const api = new MainApi(OPTIONS_MAIN_API);
+const newsApi = new NewsApi(OPTIONS_NEWS_API);
 const popupSignup = new Popup(POPUP_SIGNUP);
 const popupSignin = new Popup(POPUP_SIGNIN);
 const popupSignupSuccess = new Popup(POPUP_SIGNUP_SUCCESS);
+const formSignup = new Form(FORM_SIGNUP);
+const formSignin = new Form(FORM_SIGNIN);
+const article = new Article();
+const articleList = new ArticleList(RESULT, article);
 
 // валидация форм
-const formSignup = new Form(document.forms.signup);
 formSignup.setEventListeners();
-const formSignin = new Form(document.forms.signin);
 formSignin.setEventListeners();
 
 // регистрация пользователя
-// eslint-disable-next-line no-undef
-document.forms.signup.addEventListener('submit', (event) => {
+FORM_SIGNUP.addEventListener('submit', (event) => {
   event.preventDefault();
-  // eslint-disable-next-line max-len
-  api.signup(document.forms.signup.elements.email.value, document.forms.signup.elements.password.value, document.forms.signup.elements.name.value)
-    .then(() => {
-      popupSignup.close();
-      POPUP_SIGNUP_SUCCESS.classList.add('popup_is-opened');
+  api.signup(AUTH_EMAIL.value, AUTH_PASSWORD.value, AUTH_NAME.value)
+    .then((res) => {
+      if (res !== undefined) {
+        popupSignup.close();
+        POPUP_SIGNUP_SUCCESS.classList.add('popup_is-opened');
+      }
+      document.querySelector('.error__server').style.display = 'flex';
+    })
+    .catch((err) => {
+      throw err;
+    });
+});
+// пользователь открывает страницу
+
+api.getUser()
+  .then((body) => {
+    if (body.name !== undefined) {
+      header.auth();
+      header.mainAuth();
+      header.addUserName(body.name);
+    }
+    if (!header.login()) {
+      header.unauth();
+    }
+  })
+  .catch((err) => {
+    throw err;
+  });
+
+// пользователь входит в аккаунт
+FORM_SIGNIN.addEventListener('submit', (event) => {
+  event.preventDefault();
+  api.signin(AUTH_EMAIL_LOGIN.value, AUTH_PASSWORD_LOGIN.value)
+    .then((body) => {
+      localStorage.setItem('token', body.token);
+      popupSignin.close();
+      header.auth();
+      header.mainAuth();
+    })
+    .catch((err) => {
+      throw err;
     });
 });
 
-// пользователь входит в аккаунт
-document.forms.signin.addEventListener('submit', (event) => {
-  event.preventDefault();
-  // eslint-disable-next-line max-len
-  api.signin(document.forms.signin.elements.email.value, document.forms.signin.elements.password.value)
-    .then((data) => {
-      localStorage.setItem('token', data.token);
-      popupSignin.close();
-      header.auth();
-    });
-});
-// если позователь залогинен
-api.getUser();
 // пользователь выходит их своего аккаунта
-document.querySelector('.header__icon-exit').addEventListener('click', () => {
+EXIT_BUTTON.addEventListener('click', () => {
   api.logout()
     .then(() => {
       localStorage.removeItem('token');
       header.unauth();
+      header.mainUnauth();
+    })
+    .catch((err) => {
+      throw err;
     });
 });
 
+// слушатели открытия попапов
 BUTTON_HEADER_SIGNUP.addEventListener('click', () => {
+  FORM_SIGNUP.reset();
   popupSignup.open();
+  header.mobileMenu();
+  document.querySelector('.error__server').style.display = 'none';
 });
 
 BUTTON_SINGIN.addEventListener('click', () => {
+  FORM_SIGNIN.reset();
   popupSignin.open();
   popupSignup.close();
 });
 
 BUTTON_SINGUP.addEventListener('click', () => {
+  FORM_SIGNUP.reset();
   popupSignin.close();
   popupSignup.open();
+  ERROR_INPUT.style.display = 'none';
 });
 
 BUTTON_SINGIN_SUCCESS.addEventListener('click', () => {
@@ -112,78 +144,45 @@ BUTTON_SINGIN_SUCCESS.addEventListener('click', () => {
 });
 
 // открыть\закрыть мобильное меню
-buttonMenu.addEventListener('click', () => {
+BUTTON_MENU.addEventListener('click', () => {
   header.mobileMenu();
 });
 
-const result = document.querySelector('.result__articles');
-class Article {
-  // eslint-disable-next-line class-methods-use-this
-  create(data) {
-    const container = document.createElement('div');
-    const template = `<div data-card-id="${data._id}" class="article">
-    <div class="article__image" style="background-image: url(${data.urlToImage})"></div>
-    <div class="article__keyword"></div>
-
-    <div class="article__date">${data.publishedAt}</div>
-    <div class="article__title">${data.title}</div>
-    <div class="article__text">${data.description}</div>
-    <div class="article__source">${data.source.name}</div>
-  </div>`;
-    container.insertAdjacentHTML('beforeend', template);
-    return container;
-  }
-}
-
-const article = new Article();
-
-class ArticleList {
-  // eslint-disable-next-line no-shadow
-  constructor(container, article) {
-    this.container = container;
-    this.article = article;
-  }
-
-  addCard(data) {
-    const element = this.article.create(data);
-    this.container.appendChild(element);
-  }
-
-  render(data) {
-    // eslint-disable-next-line no-plusplus
-    data.forEach((item) => {
-      this.addCard(item);
-      document.querySelector('.result').style.display = 'flex';
-    });
-  }
-
-  clearContent() {
-    while (this.container.firstChild) {
-      this.container.removeChild(this.container.firstChild);
-      document.querySelector('.result').style.display = 'none';
-      document.querySelector('.not-found').style.display = 'none';
-    }
-  }
-}
-const articleList = new ArticleList(result, article);
-
-document.querySelector('.reserch__button').addEventListener('click', (event) => {
+// поиск статей
+BUTTON_RESERCH.addEventListener('click', (event) => {
   event.preventDefault();
-  document.querySelector('.not-found').style.display = 'none';
-  articleList.clearContent();
-  document.querySelector('.preloader').style.display = 'flex';
-  newsApi.getNews(document.querySelector('.reserch__input_handler').value)
-    .then((res) => {
-      if (res.totalResults === 0) {
-        document.querySelector('.preloader').style.display = 'none';
-        document.querySelector('.not-found').style.display = 'flex';
-      }
-      if (res.totalResults > 0) {
-        document.querySelector('.preloader').style.display = 'none';
-        articleList.render(res.articles.splice(0, 3));
-        document.querySelector('.articles__button').addEventListener('click', () => {
-          articleList.render(res.articles.splice(0, 3));
-        });
-      }
-    });
+  const keyword = INPUT_HANDLER.value;
+  if (keyword === '') {
+    INPUT_HANDLER.placeholder = 'Нужно ввести ключевое слово';
+  } else {
+    articleList.notFoundOff();
+    articleList.errorServerOff();
+    articleList.clearContent();
+    articleList.preloaderOn();
+    newsApi.getNews(keyword)
+      .then((res) => {
+        if (res.totalResults === 0) {
+          articleList.preloaderOff();
+          articleList.notFoundOn();
+        }
+        if (res.totalResults > 0) {
+          articleList.preloaderOff();
+          articleList.render(res.articles, keyword);
+          BUTTON_SHOW_MORE.addEventListener('click', () => {
+            articleList.render(res.articles, keyword);
+          });
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
 });
+
+// сохранить карточку
+RESULT.addEventListener('click', (event) => {
+  event.preventDefault();
+  article.save(event);
+});
+// наведение на иконку "сохранить" для незарегистированных пользователей
+articleList.hoverUnauth();

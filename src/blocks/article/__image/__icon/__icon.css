@@ -9,9 +9,50 @@
 .article__icon-save:hover {
   background-image: url('../../../../image/icon-save-hover.png');
 }
+.article__unauth {
+  position: absolute;
+  background-color: #ffffff;
+  width: 182px;
+  height: 40px;
+  border-radius: 12px;
+  right: 16%;
+  top: 5%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+line-height: 12px;
+text-align: center;
+display: none;
+    align-items: center;
+    justify-content: center;
+}
+.article__unauth_active {
+  display: flex;
+}
+
 .article__icon_click {
   background-image: url('../../../../image/icon-save-user.png');
 }
+.article__label_delete {
+  position: absolute;
+  background-color: #ffffff;
+  width: 182px;
+  height: 40px;
+  border-radius: 12px;
+  right: 16%;
+  top: 5%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+line-height: 12px;
+text-align: center;
+display: none;
+    align-items: center;
+    justify-content: center;
+}
+
 .article__icon-delete {
   position: absolute;
   right: 5%;
@@ -19,6 +60,9 @@
   width: 40px;
   height: 40px;
   background-image: url('../../../../image/delete.png');
+}
+.article__icon-delete:hover~.article__label_delete {
+  display: flex;
 }
 .article__icon-delete:hover {
   background-image: url('../../../../image/delete-hover.png');

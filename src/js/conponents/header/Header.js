@@ -43,8 +43,6 @@ export default class Header {
   }
 
   addUserName(name) {
-    // eslint-disable-next-line no-param-reassign
-    name = name[0].toUpperCase() + name.slice(1);
     HEADER_USER_NAME.textContent = name;
   }
 }

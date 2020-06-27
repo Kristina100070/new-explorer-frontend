@@ -8,7 +8,8 @@ import { ERROR_MESSAGES } from '../../constants/constants';
 export default class Form {
   constructor(form) {
     this.form = form;
-    this.button = form.querySelector('.popup__button');
+    // eslint-disable-next-line no-undef
+    this.button = document.querySelector('.popup__button');
   }
 
   _validateInputElement(input) {

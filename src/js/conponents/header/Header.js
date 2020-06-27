@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 /* eslint-disable class-methods-use-this */
-
 import {
   BUTTON_MENU,
   HEADER_UNAUTH,

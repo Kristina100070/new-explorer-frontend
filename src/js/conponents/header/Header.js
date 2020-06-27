@@ -11,10 +11,6 @@ import {
 } from '../../constants/constants';
 
 export default class Header {
-  constructor() {
-    this.header = header;
-  }
-
   mainAuth() {
     HEADER_UNAUTH.style.display = 'none';
   }
@@ -27,7 +23,6 @@ export default class Header {
     HEADER_AUTH.style.display = 'flex';
     HEADER_SAVE_ARTICLES.style.display = 'flex';
   }
-
 
   unauth() {
     HEADER_AUTH.style.display = 'none';

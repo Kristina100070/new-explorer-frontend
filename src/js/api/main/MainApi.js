@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/prefer-default-export
-export default class MainApi {
+export class MainApi {
   constructor({ baseUrl, headers }) {
     this.baseUrl = baseUrl;
     this.headers = headers;
@@ -60,6 +60,6 @@ export default class MainApi {
   }
 
   deleteArticle(articleId) {
-    return this.makeFetch(`articles/${articleId}`, 'DELETE');
+    return this.makeFetch(`{articles/${articleId}`, 'DELETE');
   }
 }

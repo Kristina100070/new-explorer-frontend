@@ -14,7 +14,7 @@ export default class NewsApi {
 
   getNews(UserKeyWord) {
     // eslint-disable-next-line no-undef
-    return fetch(`http://newsapi.org/v2/everything?q=${UserKeyWord}&from=${datanow}&sortBy=${datacreate}&pageSize=100&apiKey=80a33e8074cb45edb9da80a222f7120b`, {
+    return fetch(`${baseUrl}/everything?q=${UserKeyWord}&from=${datanow}&sortBy=${datacreate}&pageSize=100&apiKey=80a33e8074cb45edb9da80a222f7120b`, {
       headers: {
         authorization: `Bearer ${this.apikey}`,
       },

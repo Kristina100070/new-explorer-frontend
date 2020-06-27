@@ -58,7 +58,7 @@ const OPTIONS_MAIN_API = {
   },
 };
 const OPTIONS_NEWS_API = {
-  baseUrl: 'https://newsapi.org',
+  baseUrl: 'https://praktikum.tk/news/v2',
   headers: {
     'Content-Type': 'application/json',
     authorization: `Bearer ${localStorage.getItem('token')}`,

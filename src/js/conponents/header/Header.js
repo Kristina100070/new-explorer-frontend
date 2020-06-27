@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+/* eslint-disable class-methods-use-this */
+
 import {
   BUTTON_MENU,
   HEADER_UNAUTH,
@@ -7,9 +9,12 @@ import {
   HEADER_NAV,
   HEADER_USER_NAME,
 } from '../../constants/constants';
-/* eslint-disable class-methods-use-this */
-// eslint-disable-next-line import/prefer-default-export
+
 export default class Header {
+  constructor() {
+    this.header = header;
+  }
+
   mainAuth() {
     HEADER_UNAUTH.style.display = 'none';
   }

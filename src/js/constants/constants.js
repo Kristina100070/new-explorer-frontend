@@ -63,6 +63,7 @@ const OPTIONS_NEWS_API = {
   headers: {
     'Content-Type': 'application/json',
     credentials: 'include',
+    cors: 'no-cors',
   },
 };
 export {

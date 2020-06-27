@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export class Popup {
+export default class Popup {
   constructor(element) {
     this.element = element;
     this.closeButton = element.querySelector('.popup__close');

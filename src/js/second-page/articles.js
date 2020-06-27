@@ -1,11 +1,10 @@
 /* eslint-disable no-undef */
 import '../../style/articles.css';
-
-import { Header } from '../conponents/header/Header';
-import { MainApi } from '../api/main/MainApi';
-import { Article } from '../conponents/article/Article';
-import { ArticleList } from '../conponents/article-list/ArticleList';
-import { UserInfo } from '../conponents/user-info/UserInfo';
+import Header from '../conponents/header/Header';
+import MainApi from '../api/main/MainApi';
+import Article from '../conponents/article/Article';
+import ArticleList from '../conponents/article-list/ArticleList';
+import UserInfo from '../conponents/user-info/UserInfo';
 
 // импорт переменных
 import {
@@ -59,7 +58,6 @@ api.getArticles()
 RESULT.addEventListener('click', (event) => {
   event.preventDefault();
   article.deleteArticle(event);
-  articleList.removeArticle(event);
 });
 
 // открыть\закрыть мобильное меню

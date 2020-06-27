@@ -10,7 +10,7 @@ import {
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-undef */
 /* eslint-disable import/prefer-default-export */
-export class ArticleList {
+export default class ArticleList {
   constructor(container, article) {
     this.container = container;
     this.article = article;
@@ -55,12 +55,6 @@ export class ArticleList {
       this.addSaveArticle(item);
     });
     RESULT_CONTAINER.style.display = 'flex';
-  }
-
-  removeArticle(event) {
-    const del = event.target.parentNode;
-    del.parentNode.removeChild(del);
-    RESULT.removeChild(event.target.closest('.article'));
   }
 
   hoverUnauth() {

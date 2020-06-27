@@ -5,7 +5,7 @@
 import { ERROR_MESSAGES } from '../../constants/constants';
 
 // eslint-disable-next-line import/prefer-default-export
-export class Form {
+export default class Form {
   constructor(form) {
     this.form = form;
     this.button = form.querySelector('.popup__button');

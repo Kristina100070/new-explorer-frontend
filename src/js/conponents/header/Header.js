@@ -9,7 +9,7 @@ import {
 } from '../../constants/constants';
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/prefer-default-export
-export class Header {
+export default class Header {
   mainAuth() {
     HEADER_UNAUTH.style.display = 'none';
   }

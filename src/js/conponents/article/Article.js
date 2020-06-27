@@ -1,22 +1,15 @@
-/* eslint-disable no-param-reassign */
-import { Header } from '../header/Header';
-import { MainApi } from '../../api/main/MainApi';
+import Header from '../header/Header';
+import MainApi from '../../api/main/MainApi';
 
-import {
-  OPTIONS_MAIN_API,
-} from '../../constants/constants';
-
-import {
-  dataTransform,
-
-} from '../../utils/dataTransform';
+import { OPTIONS_MAIN_API } from '../../constants/constants';
+import { dataTransform } from '../../utils/dataTransform';
 
 const api = new MainApi(OPTIONS_MAIN_API);
 const header = new Header();
 /* eslint-disable no-undef */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable class-methods-use-this */
-export class Article {
+export default class Article {
   save(event) {
     if (event.target.classList.contains('article__icon-save')) {
       if (header.login()) {
@@ -46,12 +39,14 @@ export class Article {
   }
 
   create(data, keyword) {
+    // eslint-disable-next-line no-param-reassign
     data.publishedAt = dataTransform(data.publishedAt);
     const container = document.createElement('div');
     const template = `<div class="article">
     <div class="article__image" style="background-image: url(${data.urlToImage})"></div>
     <div class="article__icon-save"></div>
     <div class="article__unauth">Войдите, чтобы сохранять статьи</div>
+    <div class="article__link" href="${data.url}"></div>
     <div class="article__keyword">${keyword}</div>
     <div class="article__date">${data.publishedAt}</div>
     <div class="article__title">${data.title}</div>
@@ -75,7 +70,7 @@ export class Article {
     <div class="article__date">${data.date}</div>
     <div class="article__title">${data.title}</div>
     <div class="article__text">${data.text}</div>
-    <div class="article__source">${data.source}</div>
+    <a href="${data.url}" target="_blank" class="article__source">${data.source}</a>
   </div>`;
     container.insertAdjacentHTML('beforeend', template);
     return container;
@@ -84,6 +79,8 @@ export class Article {
   deleteArticle(event) {
     if (event.target.classList.contains('article__icon-delete')) {
       api.deleteArticle(event.target.parentNode.querySelector('.article__id').getAttribute('data-card-id'));
+      const article = event.target.parentNode;
+      article.parentNode.removeChild(article);
     }
   }
 }

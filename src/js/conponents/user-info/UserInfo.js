@@ -9,7 +9,7 @@ import {
   KEYWORDS_USER_NAME,
 } from '../../constants/constants';
 
-export class UserInfo {
+export default class UserInfo {
   userInfoName(name) {
     // eslint-disable-next-line no-param-reassign
     name = name[0].toUpperCase() + name.slice(1);

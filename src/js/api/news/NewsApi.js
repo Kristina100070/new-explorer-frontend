@@ -5,7 +5,7 @@ import { formattingDate } from '../../utils/formattingDate';
 const datacreate = formattingDate();
 const datanow = new Date();
 // eslint-disable-next-line import/prefer-default-export
-export class NewsApi {
+export default class NewsApi {
   constructor({ baseUrl, headers }) {
     this.baseUrl = baseUrl;
     this.headers = headers;

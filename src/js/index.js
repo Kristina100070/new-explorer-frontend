@@ -1,19 +1,12 @@
-/* eslint-disable import/named */
-/* eslint-disable guard-for-in */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable max-classes-per-file */
-/* eslint-disable no-return-assign */
-/* eslint-disable no-param-reassign */
-
 /* eslint-disable no-undef */
 import '../style/style.css';
-import { Form } from './conponents/form/Form';
-import { Popup } from './conponents/popup/Popup';
-import { MainApi } from './api/main/MainApi';
-import { NewsApi } from './api/news/NewsApi';
-import { Header } from './conponents/header/Header';
-import { Article } from './conponents/article/Article';
-import { ArticleList } from './conponents/article-list/ArticleList';
+import Form from './conponents/form/Form';
+import Popup from './conponents/popup/Popup';
+import MainApi from './api/main/MainApi';
+import NewsApi from './api/news/NewsApi';
+import Header from './conponents/header/Header';
+import Article from './conponents/article/Article';
+import ArticleList from './conponents/article-list/ArticleList';
 
 // импорт переменных
 import {
@@ -66,7 +59,7 @@ FORM_SIGNUP.addEventListener('submit', (event) => {
         popupSignup.close();
         POPUP_SIGNUP_SUCCESS.classList.add('popup_is-opened');
       }
-      document.querySelector('.error__server').style.display = 'flex';
+      ERROR_INPUT.style.display = 'flex';
     })
     .catch((err) => {
       throw err;
@@ -122,7 +115,7 @@ BUTTON_HEADER_SIGNUP.addEventListener('click', () => {
   FORM_SIGNUP.reset();
   popupSignup.open();
   header.mobileMenu();
-  document.querySelector('.error__server').style.display = 'none';
+  ERROR_INPUT.style.display = 'none';
 });
 
 BUTTON_SINGIN.addEventListener('click', () => {

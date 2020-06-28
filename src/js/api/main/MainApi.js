@@ -1,9 +1,8 @@
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/prefer-default-export
 export default class MainApi {
-  constructor({ baseUrl, headers }) {
+  constructor(baseUrl) {
     this.baseUrl = baseUrl;
-    this.headers = headers;
   }
 
   makeFetch(url, method = 'GET', body = undefined) {
@@ -11,10 +10,15 @@ export default class MainApi {
       // eslint-disable-next-line no-param-reassign
       body = JSON.stringify(body);
     }
+    // eslint-disable-next-line no-undef
     return fetch(`${this.baseUrl}/${url}`, {
       method,
       credentials: 'include',
-      headers: this.headers,
+      headers: {
+        'Content-Type': 'application/json',
+        // eslint-disable-next-line no-undef
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
       body,
     })
       // eslint-disable-next-line consistent-return

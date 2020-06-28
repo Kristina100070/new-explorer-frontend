@@ -25,7 +25,7 @@ import {
   POPUP_SIGNUP_SUCCESS,
   FORM_SIGNUP,
   FORM_SIGNIN,
-  OPTIONS_MAIN_API,
+  BASE_URL_MAIN,
   OPTIONS_NEWS_API,
   RESULT,
   EXIT_BUTTON,
@@ -36,7 +36,7 @@ import {
 } from './constants/constants';
 
 const header = new Header();
-const api = new MainApi(...OPTIONS_MAIN_API);
+const api = new MainApi(BASE_URL_MAIN);
 const newsApi = new NewsApi(OPTIONS_NEWS_API);
 const popupSignup = new Popup(POPUP_SIGNUP);
 const popupSignin = new Popup(POPUP_SIGNIN);

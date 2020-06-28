@@ -11,13 +11,11 @@ export default class MainApi {
       // eslint-disable-next-line no-param-reassign
       body = JSON.stringify(body);
     }
-    // eslint-disable-next-line no-undef
     return fetch(`${this.baseUrl}/${url}`, {
       method,
       credentials: 'include',
       headers: this.headers,
-      // eslint-disable-next-line comma-dangle
-      body
+      body,
     })
       // eslint-disable-next-line consistent-return
       .then((res) => {

@@ -1,6 +1,7 @@
 export default class MainApi {
-  constructor(baseUrl) {
+  constructor({ baseUrl, headers }) {
     this.baseUrl = baseUrl;
+    this.headers = headers;
   }
 
   makeFetch(url, method = 'GET', body = undefined) {
@@ -8,24 +9,19 @@ export default class MainApi {
       // eslint-disable-next-line no-param-reassign
       body = JSON.stringify(body);
     }
-
     // eslint-disable-next-line no-undef
     return fetch(`${this.baseUrl}/${url}`, {
       method,
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        // eslint-disable-next-line no-undef
-        authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body,
+      headers: this.headers,
+      // eslint-disable-next-line comma-dangle
+      body
     })
+      // eslint-disable-next-line consistent-return
       .then((res) => {
         if (res.ok) {
           return res.json();
         }
-        // eslint-disable-next-line prefer-promise-reject-errors
-        return Promise.reject(`Ошибка: ${res.status}`);
       })
       .catch((err) => {
         throw err;

@@ -50,13 +50,18 @@ const ERROR_SECTION = document.querySelector('.error__section');
 
 const ERROR_INPUT = document.querySelector('.error__server');
 
-const BASE_URL_MAIN = 'https://api.news-explorer82.ru';
-
-const OPTIONS_NEWS_API = {
-  baseUrl: 'https://praktikum.tk/news',
-  // 'https://newsapi.org'
+const OPTIONS_MAIN_API = {
+  baseUrl: 'https://api.news-explorer82.ru',
   headers: {
     'Content-Type': 'application/json',
+    authorization: `Bearer ${localStorage.getItem('token')}`,
+  },
+};
+const OPTIONS_NEWS_API = {
+  baseUrl: 'http://newsapi.org/v2',
+  headers: {
+    'Content-Type': 'application/json',
+    authorization: `Bearer ${localStorage.getItem('token')}`,
   },
 };
 export {
@@ -76,7 +81,7 @@ export {
   POPUP_SIGNUP_SUCCESS,
   FORM_SIGNUP,
   FORM_SIGNIN,
-  BASE_URL_MAIN,
+  OPTIONS_MAIN_API,
   OPTIONS_NEWS_API,
   RESULT,
   EXIT_BUTTON,

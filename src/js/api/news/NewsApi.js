@@ -13,7 +13,7 @@ export default class NewsApi {
   // eslint-disable-next-line class-methods-use-this
   getNews(UserKeyWord) {
     // eslint-disable-next-line no-undef
-    return fetch(`http://newsapi.org/v2/everything?q=${UserKeyWord}&from=${datanow}&sortBy=${datacreate}&pageSize=100&apiKey=${this.apikey}`, {
+    return fetch(`https://praktikum.tk/news/v2/everything?q=${UserKeyWord}&from=${datanow}&sortBy=${datacreate}&pageSize=100&apiKey=${this.apikey}`, {
     })
       .then((res) => {
         if (!res.ok) {

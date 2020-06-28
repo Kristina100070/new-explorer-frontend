@@ -3,16 +3,19 @@ export default class MainApi {
     this.baseUrl = baseUrl;
   }
 
-  /* makeFetch(url, method = 'GET', body = undefined) {
+  makeFetch(url, method = 'GET', body = undefined) {
     if (body) {
+      // eslint-disable-next-line no-param-reassign
       body = JSON.stringify(body);
     }
 
+    // eslint-disable-next-line no-undef
     return fetch(`${this.baseUrl}/${url}`, {
       method,
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
+        // eslint-disable-next-line no-undef
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body,
@@ -21,30 +24,19 @@ export default class MainApi {
         if (res.ok) {
           return res.json();
         }
+        // eslint-disable-next-line prefer-promise-reject-errors
+        return Promise.reject(`Ошибка: ${res.status}`);
       })
       .catch((err) => {
         throw err;
       });
-  } */
+  }
 
   getUser() {
-    // eslint-disable-next-line no-undef
-    return fetch(`${this.baseUrl}/users/me`, {
-      headers: {
-        // eslint-disable-next-line no-undef
-        authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.regect(res.status);
-      });
+    return this.makeFetch('users/me');
   }
-}
 
-/* signup(email, password, name) {
+  signup(email, password, name) {
     return this.makeFetch('signup', 'POST', { email, password, name });
   }
 
@@ -71,4 +63,4 @@ export default class MainApi {
   deleteArticle(articleId) {
     return this.makeFetch(`{articles/${articleId}`, 'DELETE');
   }
-} */
+}

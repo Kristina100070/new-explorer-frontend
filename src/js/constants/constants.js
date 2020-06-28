@@ -57,13 +57,7 @@ const OPTIONS_MAIN_API = {
     authorization: `Bearer ${localStorage.getItem('token')}`,
   },
 };
-const OPTIONS_NEWS_API = {
-  baseUrl: 'http://newsapi.org/v2',
-  headers: {
-    'Content-Type': 'application/json',
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
-};
+
 export {
   ERROR_MESSAGES,
   BUTTON_MENU,
@@ -82,7 +76,6 @@ export {
   FORM_SIGNUP,
   FORM_SIGNIN,
   OPTIONS_MAIN_API,
-  OPTIONS_NEWS_API,
   RESULT,
   EXIT_BUTTON,
   KEYWORDS_COUNT,

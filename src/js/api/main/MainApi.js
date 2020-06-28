@@ -57,6 +57,6 @@ export default class MainApi {
   }
 
   deleteArticle(articleId) {
-    return this.makeFetch(`{articles/${articleId}`, 'DELETE');
+    return this.makeFetch(`articles/${articleId}`, 'DELETE');
   }
 }

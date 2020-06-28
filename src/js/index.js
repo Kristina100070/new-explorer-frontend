@@ -26,7 +26,6 @@ import {
   FORM_SIGNUP,
   FORM_SIGNIN,
   OPTIONS_MAIN_API,
-  OPTIONS_NEWS_API,
   RESULT,
   EXIT_BUTTON,
   BUTTON_RESERCH,
@@ -37,7 +36,7 @@ import {
 
 const header = new Header();
 const api = new MainApi(OPTIONS_MAIN_API);
-const newsApi = new NewsApi(OPTIONS_NEWS_API);
+const newsApi = new NewsApi();
 const popupSignup = new Popup(POPUP_SIGNUP);
 const popupSignin = new Popup(POPUP_SIGNIN);
 const popupSignupSuccess = new Popup(POPUP_SIGNUP_SUCCESS);

@@ -6,19 +6,14 @@ const datacreate = formattingDate();
 const datanow = new Date();
 // eslint-disable-next-line import/prefer-default-export
 export default class NewsApi {
-  constructor({ baseUrl, headers }) {
-    this.baseUrl = baseUrl;
-    this.headers = headers;
+  constructor() {
     this.apikey = '80a33e8074cb45edb9da80a222f7120b';
   }
 
+  // eslint-disable-next-line class-methods-use-this
   getNews(UserKeyWord) {
     // eslint-disable-next-line no-undef
-    return fetch(`${baseUrl}/everything?q=${UserKeyWord}&from=${datanow}&sortBy=${datacreate}&pageSize=100&apiKey=80a33e8074cb45edb9da80a222f7120b`, {
-      headers: {
-        authorization: `Bearer ${this.apikey}`,
-        'Content-Type': 'application/json',
-      },
+    return fetch(`http://newsapi.org/v2/everything?q=${UserKeyWord}&from=${datanow}&sortBy=${datacreate}&pageSize=100&apiKey=${this.apikey}`, {
     })
       .then((res) => {
         if (!res.ok) {

@@ -78,7 +78,8 @@ export default class Article {
 
   deleteArticle(event) {
     if (event.target.classList.contains('article__icon-delete')) {
-      api.deleteArticle(event.target.parentNode.querySelector('.article__id').getAttribute('data-card-id'));
+      const id = event.target.parentNode.querySelector('.article__id').getAttribute('data-card-id');
+      api.deleteArticle(id);
       const article = event.target.parentNode;
       article.parentNode.removeChild(article);
     }

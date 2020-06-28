@@ -8,6 +8,7 @@ const datanow = new Date();
 export default class NewsApi {
   constructor({ baseUrl }) {
     this.baseUrl = baseUrl;
+    this.apikey = '80a33e8074cb45edb9da80a222f7120b';
   }
 
   getNews(UserKeyWord) {

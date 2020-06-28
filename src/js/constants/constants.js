@@ -57,7 +57,6 @@ const OPTIONS_NEWS_API = {
   // 'https://newsapi.org'
   headers: {
     'Content-Type': 'application/json',
-    authorization: `Bearer ${localStorage.getItem('token')}`,
   },
 };
 export {

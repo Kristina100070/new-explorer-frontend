@@ -10,10 +10,13 @@ const header = new Header();
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable class-methods-use-this */
 export default class Article {
+  constructor() {
+    this.id = '';
+  }
+
   save(event) {
     if (event.target.classList.contains('article__icon-save')) {
       if (header.login()) {
-        event.target.classList.toggle('article__icon_click');
         const keyword = event.target
           .closest('.article')
           .querySelector('.article__keyword').textContent;
@@ -33,44 +36,65 @@ export default class Article {
         const image = event.target.closest('.article').querySelector('.article__image').style.backgroundImage.slice(5);
         api.createArticle({
           keyword, title, text, date, source, link, image,
-        });
+        })
+          .then((res) => {
+            if (res) {
+              event.target.classList.add('article__icon_click');
+              event.target.classList.remove('article__icon-save');
+              this.id = res.data._id;
+            }
+          })
+          .catch((err) => {
+            throw err;
+          });
       }
+    } else {
+      api.deleteArticle(this.id)
+        .then((res) => {
+          if (res) {
+            event.target.classList.remove('article__icon_click');
+            event.target.classList.add('article__icon-save');
+          }
+        })
+        .catch((err) => {
+          throw err;
+        });
     }
   }
 
-  create(data, keyword) {
+  create(dataArticles, keyword) {
     // eslint-disable-next-line no-param-reassign
-    data.publishedAt = dataTransform(data.publishedAt);
+    dataArticles.publishedAt = dataTransform(dataArticles.publishedAt);
     const container = document.createElement('div');
     const template = `<div class="article">
-    <div class="article__image" style="background-image: url(${data.urlToImage})"></div>
+    <div class="article__image" style="background-image: url(${dataArticles.urlToImage})"></div>
     <div class="article__icon-save"></div>
     <div class="article__unauth">Войдите, чтобы сохранять статьи</div>
-    <div class="article__link" href="${data.url}"></div>
+    <div class="article__link" href="${dataArticles.url}"></div>
     <div class="article__keyword">${keyword}</div>
-    <div class="article__date">${data.publishedAt}</div>
-    <div class="article__title">${data.title}</div>
-    <div class="article__text">${data.description}</div>
-    <a href="${data.url}" target="_blank" class="article__source">${data.source.name}</a>
+    <div class="article__date">${dataArticles.publishedAt}</div>
+    <div class="article__title">${dataArticles.title}</div>
+    <div class="article__text">${dataArticles.description}</div>
+    <a href="${dataArticles.url}" target="_blank" class="article__source">${dataArticles.source.name}</a>
   </div>`;
     container.insertAdjacentHTML('beforeend', template);
     return container;
   }
 
-  createSaveArticle(data) {
+  createSaveArticle(dataArticles) {
     const container = document.createElement('div');
     const template = `<div class="article">
-    <div class="article__id" data-card-id="${data._id}"></div>
-    <div class="article__image" style="background-image: url(${data.image})"></div>
+    <div class="article__id" data-card-id="${dataArticles._id}"></div>
+    <div class="article__image" style="background-image: url(${dataArticles.image})"></div>
     <div class="article__icon-delete"></div>
     <div class="article__label_delete">Убрать из сохранённых</div>
     <div class="article__unauth"></div>
-    <div class="article__keyword_save">${data.keyword}</div>
-    <div href="${data.url}" class="article__link"></div>
-    <div class="article__date">${data.date}</div>
-    <div class="article__title">${data.title}</div>
-    <div class="article__text">${data.text}</div>
-    <a href="${data.url}" target="_blank" class="article__source">${data.source}</a>
+    <div class="article__keyword_save">${dataArticles.keyword}</div>
+    <div href="${dataArticles.url}" class="article__link"></div>
+    <div class="article__date">${dataArticles.date}</div>
+    <div class="article__title">${dataArticles.title}</div>
+    <div class="article__text">${dataArticles.text}</div>
+    <a href="${dataArticles.url}" target="_blank" class="article__source">${dataArticles.source}</a>
   </div>`;
     container.insertAdjacentHTML('beforeend', template);
     return container;
@@ -79,9 +103,16 @@ export default class Article {
   deleteArticle(event) {
     if (event.target.classList.contains('article__icon-delete')) {
       const id = event.target.parentNode.querySelector('.article__id').getAttribute('data-card-id');
-      api.deleteArticle(id);
-      const article = event.target.parentNode;
-      article.parentNode.removeChild(article);
+      api.deleteArticle(id)
+        .then((res) => {
+          if (res) {
+            const article = event.target.parentNode;
+            article.parentNode.removeChild(article);
+          }
+        })
+        .catch((err) => {
+          throw err;
+        });
     }
   }
 }

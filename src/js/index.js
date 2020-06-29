@@ -31,8 +31,10 @@ import {
   BUTTON_RESERCH,
   INPUT_HANDLER,
   BUTTON_SHOW_MORE,
-  ERROR_INPUT,
+  ERROR_INPUT_SIGNIN,
+  ERROR_INPUT_SIGNUP,
 } from './constants/constants';
+import { errorSection } from './utils/error-section';
 
 const header = new Header();
 const api = new MainApi(OPTIONS_MAIN_API);
@@ -58,10 +60,15 @@ FORM_SIGNUP.addEventListener('submit', (event) => {
         popupSignup.close();
         POPUP_SIGNUP_SUCCESS.classList.add('popup_is-opened');
       }
-      ERROR_INPUT.style.display = 'flex';
     })
     .catch((err) => {
-      throw err;
+      err
+        // eslint-disable-next-line no-shadow
+        .then((err) => {
+          console.log(err.message);
+
+          ERROR_INPUT_SIGNUP.textContent = (err.message);
+        });
     });
 });
 // пользователь открывает страницу
@@ -78,7 +85,11 @@ api.getUser()
     }
   })
   .catch((err) => {
-    throw err;
+    err
+      // eslint-disable-next-line no-shadow
+      .then((err) => {
+        console.log(err.message);
+      });
   });
 
 // пользователь входит в аккаунт
@@ -92,42 +103,45 @@ FORM_SIGNIN.addEventListener('submit', (event) => {
       header.mainAuth();
     })
     .catch((err) => {
-      throw err;
+      err
+        // eslint-disable-next-line no-shadow
+        .then((err) => {
+          ERROR_INPUT_SIGNIN.textContent = (err.message);
+        });
     });
 });
 
 // пользователь выходит их своего аккаунта
-EXIT_BUTTON.addEventListener('click', () => {
-  api.logout()
-    .then(() => {
-      localStorage.removeItem('token');
-      header.unauth();
-      header.mainUnauth();
-    })
-    .catch((err) => {
-      throw err;
-    });
+EXIT_BUTTON.addEventListener('click', (event) => {
+  event.preventDefault();
+  localStorage.removeItem('token');
+  header.unauth();
+  header.mainUnauth();
 });
 
 // слушатели открытия попапов
 BUTTON_HEADER_SIGNUP.addEventListener('click', () => {
+  formSignup.buttonUnactive();
   FORM_SIGNUP.reset();
   popupSignup.open();
   header.mobileMenu();
-  ERROR_INPUT.style.display = 'none';
+  ERROR_INPUT_SIGNUP.textContent = '';
 });
 
 BUTTON_SINGIN.addEventListener('click', () => {
+  formSignin.buttonUnactive();
   FORM_SIGNIN.reset();
   popupSignin.open();
   popupSignup.close();
+  ERROR_INPUT_SIGNIN.textContent = '';
 });
 
 BUTTON_SINGUP.addEventListener('click', () => {
+  formSignup.buttonUnactive();
   FORM_SIGNUP.reset();
   popupSignin.close();
   popupSignup.open();
-  ERROR_INPUT.style.display = 'none';
+  ERROR_INPUT_SIGNUP.textContent = '';
 });
 
 BUTTON_SINGIN_SUCCESS.addEventListener('click', () => {
@@ -139,10 +153,12 @@ BUTTON_SINGIN_SUCCESS.addEventListener('click', () => {
 BUTTON_MENU.addEventListener('click', () => {
   header.mobileMenu();
 });
-
+BUTTON_RESERCH.disabled = false;
 // поиск статей
 BUTTON_RESERCH.addEventListener('click', (event) => {
   event.preventDefault();
+  BUTTON_RESERCH.disabled = true;
+  INPUT_HANDLER.disabled = true;
   const keyword = INPUT_HANDLER.value;
   if (keyword === '') {
     INPUT_HANDLER.placeholder = 'Нужно ввести ключевое слово';
@@ -156,17 +172,21 @@ BUTTON_RESERCH.addEventListener('click', (event) => {
         if (res.totalResults === 0) {
           articleList.preloaderOff();
           articleList.notFoundOn();
+          BUTTON_RESERCH.disabled = false;
+          INPUT_HANDLER.disabled = false;
         }
         if (res.totalResults > 0) {
           articleList.preloaderOff();
+          BUTTON_RESERCH.disabled = false;
+          INPUT_HANDLER.disabled = false;
           articleList.render(res.articles, keyword);
           BUTTON_SHOW_MORE.addEventListener('click', () => {
             articleList.render(res.articles, keyword);
           });
         }
       })
-      .catch((err) => {
-        throw err;
+      .catch(() => {
+        errorSection();
       });
   }
 });

@@ -32,6 +32,11 @@ display: none;
 }
 
 .article__icon_click {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 40px;
+  height: 40px;
   background-image: url('../../../../image/icon-save-user.png');
 }
 .article__label_delete {

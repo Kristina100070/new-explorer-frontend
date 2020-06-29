@@ -1,7 +1,6 @@
 @import url(./__button/__button.css);
 @import url(./__close/__close.css);
 @import url(./__content/__content.css);
-@import url(./__form/__form.css);
 @import url(./__input/__input.css);
 @import url(./__title/__title.css);
 @import url(./__subtitle/__subtitle.css);
@@ -27,11 +26,19 @@ color: #FF0000;
 transition: .3s;
 padding: 0px;
 }
-.error__server {
-  display: none;
+.error__server_in {
+  display: flex;
   font-size: 12px;
   line-height: 15px;
   color: #FF0000;
   transition: .3s;
   padding: 0px;
   }
+  .error__server_up {
+    display: flex;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    transition: .3s;
+    padding: 0px;
+    }

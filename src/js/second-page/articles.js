@@ -12,6 +12,8 @@ import {
   EXIT_BUTTON,
   RESULT,
   BUTTON_MENU,
+  KEYWORDS_COUNT,
+  KEYWORDS_WORD,
 } from '../constants/constants';
 
 const api = new MainApi(OPTIONS_MAIN_API);
@@ -34,24 +36,28 @@ api.getUser()
   });
 
 // пользователь выходит их своего аккаунта
-EXIT_BUTTON.addEventListener('click', () => {
-  api.logout()
-    .then(() => {
-      localStorage.removeItem('token');
-      header.unauth();
-      window.location.href = '/';
-    });
+EXIT_BUTTON.addEventListener('click', (event) => {
+  event.preventDefault();
+  localStorage.removeItem('token');
+  header.unauth();
+  window.location.href = '/';
+  // '/new-explorer-frontend/'
 });
 
 // отрисовывает сохраненные статьи
 api.getArticles()
   .then((res) => {
-    if (!res) {
-      userInfo.noData();
-    }
     articleList.renderSaveArticle(res);
     userInfo.countArticle(res.length);
     userInfo.addKeywords(res);
+  })
+  .catch((err) => {
+    err
+      // eslint-disable-next-line no-shadow
+      .then((err) => {
+        KEYWORDS_COUNT.textContent = (err.message);
+        KEYWORDS_WORD.style.display = 'none';
+      });
   });
 
 // удалить карточку

@@ -21,17 +21,17 @@ export default class ArticleList {
     this.container.appendChild(element);
   }
 
-  render(data, keyword) {
-    this._buttonResult(data);
-    const arr = data.splice(0, 3);
-    arr.forEach((item) => {
+  render(dataArticles, keyword) {
+    this._buttonResult(dataArticles);
+    const arrArticles = dataArticles.splice(0, 3);
+    arrArticles.forEach((item) => {
       this.addCard(item, keyword);
       RESULT_CONTAINER.style.display = 'flex';
     });
   }
 
-  _buttonResult(data) {
-    if (data.length > 3) {
+  _buttonResult(dataArticles) {
+    if (dataArticles.length > 3) {
       BUTTON_SHOW_MORE.style.display = 'flex';
     } else {
       BUTTON_SHOW_MORE.style.display = 'none';
@@ -45,13 +45,13 @@ export default class ArticleList {
     }
   }
 
-  addSaveArticle(data) {
-    const element = this.article.createSaveArticle(data);
+  addSaveArticle(dataArticles) {
+    const element = this.article.createSaveArticle(dataArticles);
     this.container.appendChild(element);
   }
 
-  renderSaveArticle(data) {
-    data.forEach((item) => {
+  renderSaveArticle(dataArticles) {
+    dataArticles.forEach((item) => {
       this.addSaveArticle(item);
     });
     RESULT_CONTAINER.style.display = 'flex';

@@ -48,7 +48,8 @@ const PRELOADER = document.querySelector('.preloader');
 const NOT_FOUND_ARTICLES = document.querySelector('.not-found');
 const ERROR_SECTION = document.querySelector('.error__section');
 
-const ERROR_INPUT = document.querySelector('.error__server');
+const ERROR_INPUT_SIGNIN = document.querySelector('.error__server_in');
+const ERROR_INPUT_SIGNUP = document.querySelector('.error__server_up');
 
 const OPTIONS_MAIN_API = {
   baseUrl: 'https://api.news-explorer82.ru',
@@ -93,5 +94,6 @@ export {
   PRELOADER,
   NOT_FOUND_ARTICLES,
   ERROR_SECTION,
-  ERROR_INPUT,
+  ERROR_INPUT_SIGNIN,
+  ERROR_INPUT_SIGNUP,
 };

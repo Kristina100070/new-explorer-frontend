@@ -11,9 +11,7 @@ import {
 
 export default class UserInfo {
   userInfoName(name) {
-    // eslint-disable-next-line no-param-reassign
-    name = name[0].toUpperCase() + name.slice(1);
-    KEYWORDS_USER_NAME.textContent = `${name}, у вас `;
+    KEYWORDS_USER_NAME.textContent = `${name},  `;
   }
 
   countArticle(count) {
@@ -27,11 +25,6 @@ export default class UserInfo {
   _end(number, txt) {
     const cases = [2, 0, 1, 1, 1, 2];
     return txt[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
-  }
-
-  noData() {
-    KEYWORDS_COUNT.textContent = 'нет сохраненных статей';
-    KEYWORDS_WORD.style.display = 'none';
   }
 
   addKeywords(data) {

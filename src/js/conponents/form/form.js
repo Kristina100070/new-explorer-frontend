@@ -9,7 +9,7 @@ export default class Form {
   constructor(form) {
     this.form = form;
     // eslint-disable-next-line no-undef
-    this.button = document.querySelector('.popup__button');
+    this.button = form.querySelector('.popup__button');
   }
 
   _validateInputElement(input) {
@@ -38,5 +38,9 @@ export default class Form {
       this._validateInputElement(event.target);
       this._setSubmitButtonState(this.form, this.button);
     });
+  }
+
+  buttonUnactive() {
+    this.button.classList.remove('popup__button_active');
   }
 }

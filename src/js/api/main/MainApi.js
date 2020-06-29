@@ -19,12 +19,11 @@ export default class MainApi {
     })
       // eslint-disable-next-line consistent-return
       .then((res) => {
-        if (res.ok) {
-          return res.json();
+        if (!res.ok) {
+          // eslint-disable-next-line prefer-promise-reject-errors
+          return Promise.reject(res.json());
         }
-      })
-      .catch((err) => {
-        throw err;
+        return res.json();
       });
   }
 
@@ -38,10 +37,6 @@ export default class MainApi {
 
   signin(email, password) {
     return this.makeFetch('signin', 'POST', { email, password });
-  }
-
-  logout() {
-    return this.makeFetch('users/me', 'PUT');
   }
 
   getArticles() {

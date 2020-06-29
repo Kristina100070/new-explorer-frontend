@@ -4,21 +4,24 @@
   flex-direction: row;
   flex-wrap: wrap;
   }
-  .header__nav_guest {
-display: none;
-
-    }
-  .header__nav_authorized {
-       display: flex;
-    }
 
   @media screen and (max-width: 480px) {
     .header__nav {
+      display: none;
       padding: 0 7.2%;
+      position: fixed;
+      z-index: 1;
       flex-direction: column;
     align-items: flex-start;
  justify-content: space-around;
  height: 230px;
  width: 100%;
+ top: 56px;
+ left: 0;
+ background-color: rgba(0, 0, 0);
+ box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+      }
+      .header__toggle-menu {
+        display: flex;
       }
   }

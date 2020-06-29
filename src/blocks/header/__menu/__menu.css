@@ -11,7 +11,19 @@
   align-items: center;
   height: 80px;
   }
-
+  .header__articles {
+    margin-right: 44px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: none;
+  align-items: center;
+  height: 80px;
+  }
  .header__menu_active {
    border-bottom: 3px solid #FFFFFF;
  }
@@ -24,12 +36,13 @@
     font-size: 16px;
     margin-right: 16px;
   }
+  .header__articles {
+    font-size: 16px;
+    margin-right: 16px;
+  }
 }
 @media screen and (max-width: 480px) {
-  .header__menu {
-    font-size: 16px;
-}
   .header__menu_active {
-    display: none;
+    border-bottom: none;
 }
 }

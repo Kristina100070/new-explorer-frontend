@@ -1,4 +1,8 @@
 .article__text {
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 4;
+overflow: hidden;
   padding: 0 6%;
   font-family: Roboto;
 font-style: normal;

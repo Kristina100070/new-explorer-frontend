@@ -10,28 +10,20 @@
 <body>
   <div class="root">
     <section class="main-section">
-      <header class="header header__mobile-menu">
-        <div class="mobile-menu">
-           <div class="header__logo">NewsExplorer</div>
-           <img class="header__icon-menu" src="<%= require('../image/menu.png').default%>" alt="">
-        </div>
 
-        <nav class="header__nav header__nav_guest">
-          <a href="/" class="header__menu ">Главная</a>
-          <button class="header__authorized">Авторизоваться</button>
-        </nav>
-
-        <nav class="header__nav header__nav_authorized ">
+      <header class="header">
+        <div class="header__logo">NewsExplorer</div>
+        <div class="header__icon-menu"></div>
+        <nav class="header__nav">
           <a href="./" class="header__menu header__menu_active">Главная</a>
-          <a href="./articles.html" class="header__menu">Сохранённые статьи</a>
-          <button class="header__authorized">
-            <div class="header__user-name">Грета </div>
-            <img class="header__icon-exit" src="<%= require('../image/logout.png').default%>" alt="">
+          <a href="./articles.html" class="header__articles">Сохранённые статьи</a>
+          <button class="header__button header__unauth">Авторизоваться</button>
+          <button class="header__button header__auth">
+            <div class="header__user-name"></div>
+            <div class="header__icon-exit"></div>
           </button>
         </nav>
       </header>
-
-
       <div class="reserch">
        <div> <h1 class="reserch__title">Что в мире творится?</h1>
         <p class="reserch__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p></div>
@@ -39,49 +31,11 @@
           <input class="reserch__input_handler" placeholder="Введите тему новости">
           <button class="reserch__button">Искать</button></div>
         </div>
-
     </section>
 
-
-    <section class="result_active">
+    <section class="result">
       <h2 class="result__title">Результаты поиска</h2>
-
-      <div class="result__articles">
-
-        <div class="article">
-          <div class="article__image"></div>
-          <div class="article__icon-save"></div>
-          <div class="article__date">2 августа, 2019</div>
-          <div class="article__title">Национальное достояние – парки</div>
-          <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-          <div class="article__source">Лента.ру</div>
-        </div>
-        <div class="article">
-          <div class="article__image"></div>
-          <div class="article__icon-save"></div>
-          <div class="article__date">2 августа, 2019</div>
-          <div class="article__title">Национальное достояние – парки</div>
-          <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-          <div class="article__source">Лента.ру</div>
-        </div>
-        <div class="article">
-          <div class="article__image"></div>
-          <div class="article__icon-save"></div>
-          <div class="article__date">2 августа, 2019</div>
-          <div class="article__title">Национальное достояние – парки</div>
-          <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-          <div class="article__source">Лента.ру</div>
-        </div>
-        <div class="article">
-          <div class="article__image"></div>
-          <div class="article__icon-save"></div>
-          <div class="article__date">2 августа, 2019</div>
-          <div class="article__title">Национальное достояние – парки</div>
-          <div class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала склады...</div>
-          <div class="article__source">Лента.ру</div>
-        </div>
-
-      </div>
+      <div class="result__articles"></div>
 <button class="articles__button">Показать еще</button>
     </section>
 
@@ -94,6 +48,11 @@
   <img class="not-found__image" src="<%= require('../image/not-found_v1.png').default%>">
   <h4 class="not-found__title">Ничего не найдено</h4>
   <p class="not-found__text">К сожалению по вашему запросу ничего не найдено.</p>
+</section>
+
+<section class="error__section">
+  <h4 class="error__text">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.
+    Подождите немного и попробуйте ещё раз.</h4>
 </section>
 
    <section class="about">
@@ -135,14 +94,15 @@
         <form class="popup__form_singin" name="signin" novalidate>
           <div>
           <h6 class="popup__subtitle">Email</h6>
-          <input id="email" type="text" name="email" placeholder="Введите почту" class="popup__input"  required minlength="2" maxlength="30" >
+          <input id="email" type="email" name="email" placeholder="Введите почту" class="popup__input popup__input-email_signin"  required minlength="2" maxlength="30" >
           <span id="error" class="error"></span></div>
           <div>
             <h6 class="popup__subtitle">Пароль</h6>
-          <input id="password" type="text" name="password" placeholder="Введите пароль" class="popup__input"  required minlength="2" maxlength="30" >
+          <input id="password" type="text" name="password" placeholder="Введите пароль" class="popup__input popup__input-password_signin"  required >
           <span id="error" class="error" ></span></div>
-            <button type="submit" class="popup__button popup__button_active">Войти</button>
-        <span class="popup__span" >или <a class="popup__link">Зарегистрироваться</a></span>
+          <span class="error__server_in"></span>
+            <button type="submit" class="popup__button">Войти</button>
+        <span class="popup__span" >или <a class="popup__link popup__link_up">Зарегистрироваться</a></span>
           </form>
       </div>
     </section>
@@ -151,21 +111,22 @@
       <div class="popup__content">
         <img src="<%= require('../image/back.png').default%>" alt="" class="popup__close">
         <h3 class="popup__title">Регистрация</h3>
-        <form class="popup__form_singin" name="signin" novalidate>
+        <form class="popup__form_singup" name="signup" novalidate>
           <div>
           <h6 class="popup__subtitle">Email</h6>
-          <input id="email" type="text" name="email" placeholder="Введите почту" class="popup__input"  required minlength="2" maxlength="30" >
+          <input pattern="^(([\w\.]{2,}-?)+@([\w\-\.]{2,})+([a-z]{2,})+)$" type="text" name="email" placeholder="Введите почту" class="popup__input popup__input-email_signup"  required minlength="2" maxlength="30" >
           <span id="error" class="error"></span></div>
           <div>
             <h6 class="popup__subtitle">Пароль</h6>
-          <input id="password" type="text" name="password" placeholder="Введите пароль" class="popup__input"  required minlength="2" maxlength="30" >
+          <input pattern="^((?=^.{8,}$)(?=.*[0-9])(?=.*[a-z]).*)$" type="text" name="password" placeholder="Введите пароль" class="popup__input popup__input-password_signup"  required minlength="8" maxlength="30" >
           <span id="error" class="error" ></span></div>
           <div>
           <h6 class="popup__subtitle">Имя</h6>
-          <input id="name" type="text" name="text" placeholder="Введите своё имя" class="popup__input"  required minlength="2" maxlength="30" >
+          <input id="name" type="text" name="text" placeholder="Введите своё имя" class="popup__input popup__input-name_signup"  required minlength="2" maxlength="30" >
           <span id="error" class="error" ></span></div>
-            <button type="submit" class="popup__button popup__button_active">Зарегистрироваться</button>
-        <span class="popup__span" >или <a class="popup__link">Войти</a></span>
+          <span class="error__server_up"></span>
+            <button type="submit" class="popup__button">Зарегистрироваться</button>
+        <span class="popup__span" >или <a class="popup__link popup__link_in">Войти</a></span>
           </form>
       </div>
     </section>
@@ -175,7 +136,7 @@
         <img src="<%= require('../image/back.png').default%>" alt="" class="popup__close">
         <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
 
-         <a class="popup__link popup__link_signin">Выполнить вход</a>
+         <a class="popup__link popup__link_signin popup__link_i">Выполнить вход</a>
 
       </div>
     </section>

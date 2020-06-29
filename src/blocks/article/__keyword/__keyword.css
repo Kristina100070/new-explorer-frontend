@@ -1,4 +1,8 @@
 .article__keyword {
+display: none;
+
+}
+.article__keyword_save {
   position: absolute;
   background-color: #ffffff;
   width: 88px;

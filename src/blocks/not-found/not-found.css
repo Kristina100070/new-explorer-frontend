@@ -1,19 +1,15 @@
 @import url('./__image/image.css');
 @import url('./__text/__text.css');
 @import url('./__title/title.css');
-.not-found_active {
-display: flex;
+.not-found {
+display: none;
 flex-direction: column;
 background-color: #F5F6F7;
 padding: 5.5% 7.2%;
 align-items: center;
 }
-.not-found {
-  display: none;
-}
-
 @media screen and (max-width: 320px) {
-  .not-found_active {
+  .not-found {
 padding: 2.5% 5%;
 }
 }

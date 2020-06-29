@@ -1,6 +1,8 @@
 .header__icon-exit {
   width: 30px;
     height: 30px;
+    background-image: url('../../../image/logout.png');
+    background-size: cover;
   }
   .header__icon-menu {
 display: none;
@@ -9,11 +11,24 @@ display: none;
   }
   @media screen and (max-width: 480px) {
     .header__icon-menu  {
+      background-image: url('../../../image/menu.png');
       display: flex;
       }
+      .header__icon-menu_black {
+        background-image: url('../../../image/menu-black.png');
+      }
+      .header__icon-menu_delete {
+        background-size: cover;
+        width: 24px;
+    height: 24px;
+        background-image: url('../../../image/back.png');
+      }
+      .header__icon-menu_delete-black {
+        background-image: url('../../../image/close.svg');
+      }
   }
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 480px) {
       .header__icon-exit_black {
-        display: flex;
+        background-image: url('../../../image/logout-black.png');
       }
   }
